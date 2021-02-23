@@ -7,22 +7,17 @@ class HashTable:
         self.size = size
         self.arr = self.create_arr(size)
 
-    # 1️⃣ TODO: Complete the create_arr method.
-
-    # Each element of the hash table (arr) is a linked list.
-    # This method creates an array (list) of a given size and populates each of its elements with a LinkedList object.
-
     def create_arr(self, size):
-        arr = [LinkedList()] * size
+        arr = []
+        for i in range(size):
+            linked_list = LinkedList()
+            arr.append(linked_list)
         return arr
 
-    # 2️⃣ TODO: Create your own hash function.
-
-    # Hash functions are a function that turns each of these keys into an index value that we can use to decide where in our list each key:value pair should be stored.
-
     def hash_func(self, key):
-
-        pass
+        number_hash = hash(key.lower())
+        index = number_hash % self.size
+        return index
 
     # 3️⃣ TODO: Complete the insert method.
 
