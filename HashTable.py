@@ -24,18 +24,15 @@ class HashTable:
     # Should insert a key value pair into the hash table, where the key is the word and the value is a counter for the number of times the word appeared. When inserting a new word in the hash table, be sure to check if there is a Node with the same key in the table already.
 
     def insert(self, key, value):
-        pass
-
-    # 4️⃣ TODO: Complete the print_key_values method.
-
-    # Traverse through the every Linked List in the table and print the key value pairs.
-
-    # For example:
-    # a: 1
-    # again: 1
-    # and: 1
-    # blooms: 1
-    # erase: 2
+        new_data = (key, value)
+        key_hash = self.hash_func(key)
+        ll = self.arr[key_hash]
+        if ll.find(key) == -1:
+            print(f"{key} was not found")
+            ll.append(new_data)
+        else:
+            ll.update(key, value)
 
     def print_key_values(self):
-        pass
+        for ll in self.arr:
+            ll.print_nodes()
